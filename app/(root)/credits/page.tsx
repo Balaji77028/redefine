@@ -9,7 +9,7 @@
 // import { getUserById } from "@/lib/actions/user.action";
 // import { auth } from "@clerk/nextjs/server";
 
-// const Credits = async () => {
+const Credits = async () => {
 //   const { userId } = auth();
 
 //   if (!userId) redirect("/sign-in");
@@ -75,6 +75,6 @@
 //       </section>
 //     </>
 //   );
-// };
+};
 
-// export default Credits;
+export default Credits;
