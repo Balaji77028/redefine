@@ -1,12 +1,13 @@
-import { SignedIn, auth } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
+import Checkout from "@/components/shared/Checkout";
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import Checkout from "@/components/shared/Checkout";
+import { getUserById } from "@/lib/actions/user.action";
+import { auth } from "@clerk/nextjs/server";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -40,8 +41,7 @@ const Credits = async () => {
                 {plan.inclusions.map((inclusion) => (
                   <li
                     key={plan.name + inclusion.label}
-                    className="flex items-center gap-4"
-                  >
+                    className="flex items-center gap-4">
                     <Image
                       src={`/assets/icons/${
                         inclusion.isIncluded ? "check.svg" : "cross.svg"
