@@ -1,20 +1,15 @@
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import Checkout from "@/components/shared/Checkout";
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
-import { getUserById } from "@/lib/actions/user.action";
-import { auth } from "@clerk/nextjs/server";
+import { getUserById } from "@/lib/actions/user.actions";
+import Checkout from "@/components/shared/Checkout";
 
 const Credits = async () => {
-<<<<<<< HEAD
   const { userId } = auth();
-=======
-//   const { userId } = auth();
->>>>>>> fd29717a36ac3cf7f78b39191ad39ecadac23711
 
   if (!userId) redirect("/sign-in");
 
@@ -36,7 +31,7 @@ const Credits = async () => {
                 <p className="p-20-semibold mt-2 text-purple-500">
                   {plan.name}
                 </p>
-                <p className="h1-semibold text-dark-600">₹{plan.price}</p>
+                <p className="h1-semibold text-dark-600">${plan.price}</p>
                 <p className="p-16-regular">{plan.credits} Credits</p>
               </div>
 
@@ -45,7 +40,8 @@ const Credits = async () => {
                 {plan.inclusions.map((inclusion) => (
                   <li
                     key={plan.name + inclusion.label}
-                    className="flex items-center gap-4">
+                    className="flex items-center gap-4"
+                  >
                     <Image
                       src={`/assets/icons/${
                         inclusion.isIncluded ? "check.svg" : "cross.svg"
@@ -59,7 +55,6 @@ const Credits = async () => {
                 ))}
               </ul>
 
-<<<<<<< HEAD
               {plan.name === "Free" ? (
                 <Button variant="outline" className="credits-btn">
                   Free Consumable
@@ -80,28 +75,6 @@ const Credits = async () => {
       </section>
     </>
   );
-=======
-//               {plan.name === "Free" ? (
-//                 <Button variant="outline" className="credits-btn">
-//                   Free Consumable
-//                 </Button>
-//               ) : (
-//                 <SignedIn>
-//                   <Checkout
-//                     plan={plan.name}
-//                     amount={plan.price}
-//                     credits={plan.credits}
-//                     buyerId={user._id}
-//                   />
-//                 </SignedIn>
-//               )}
-//             </li>
-//           ))}
-//         </ul>
-//       </section>
-//     </>
-//   );
->>>>>>> fd29717a36ac3cf7f78b39191ad39ecadac23711
 };
 
 export default Credits;
