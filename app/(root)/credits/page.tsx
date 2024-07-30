@@ -10,7 +10,11 @@ import { getUserById } from "@/lib/actions/user.action";
 import { auth } from "@clerk/nextjs/server";
 
 const Credits = async () => {
+<<<<<<< HEAD
   const { userId } = auth();
+=======
+//   const { userId } = auth();
+>>>>>>> fd29717a36ac3cf7f78b39191ad39ecadac23711
 
   if (!userId) redirect("/sign-in");
 
@@ -55,6 +59,7 @@ const Credits = async () => {
                 ))}
               </ul>
 
+<<<<<<< HEAD
               {plan.name === "Free" ? (
                 <Button variant="outline" className="credits-btn">
                   Free Consumable
@@ -75,6 +80,28 @@ const Credits = async () => {
       </section>
     </>
   );
+=======
+//               {plan.name === "Free" ? (
+//                 <Button variant="outline" className="credits-btn">
+//                   Free Consumable
+//                 </Button>
+//               ) : (
+//                 <SignedIn>
+//                   <Checkout
+//                     plan={plan.name}
+//                     amount={plan.price}
+//                     credits={plan.credits}
+//                     buyerId={user._id}
+//                   />
+//                 </SignedIn>
+//               )}
+//             </li>
+//           ))}
+//         </ul>
+//       </section>
+//     </>
+//   );
+>>>>>>> fd29717a36ac3cf7f78b39191ad39ecadac23711
 };
 
 export default Credits;
