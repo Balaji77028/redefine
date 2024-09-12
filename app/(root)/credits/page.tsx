@@ -76,5 +76,4 @@ const Credits = async () => {
     </>
   );
 };
-
 export default Credits;
